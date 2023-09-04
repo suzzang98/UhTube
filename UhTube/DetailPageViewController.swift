@@ -11,7 +11,7 @@ class DetailPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("hi JDK")
         // Do any additional setup after loading the view.
     }
     
