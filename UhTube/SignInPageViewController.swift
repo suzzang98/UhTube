@@ -9,11 +9,11 @@ import UIKit
 
 class SignInPageViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+    
+}
+    
+    
     
 
     /*
@@ -26,4 +26,16 @@ class SignInPageViewController: UIViewController {
     }
     */
 
-}
+
+
+
+   
+    
+    
+    
+ 
+    
+    
+    
+    
+  
