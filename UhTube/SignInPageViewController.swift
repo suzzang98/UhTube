@@ -11,7 +11,7 @@ class SignInPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("new")
         // Do any additional setup after loading the view.
     }
     
