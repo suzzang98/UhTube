@@ -20,7 +20,7 @@ class MainPageViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     
     
-    
+    //이미지 배열
     
     var uImage = [#imageLiteral(resourceName: "노마드코더3"), #imageLiteral(resourceName: "노마드코더9"), #imageLiteral(resourceName: "노마드코더1"), #imageLiteral(resourceName: "노마드코더4"), #imageLiteral(resourceName: "노마드코더2"), #imageLiteral(resourceName: "노마드코더7"), #imageLiteral(resourceName: "노마드코더8"), #imageLiteral(resourceName: "메모리저장소 구현")]
     
