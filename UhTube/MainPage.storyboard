@@ -5,25 +5,95 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item1-->
+        <!--MainPageViewController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MainPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MainPageViewController" customModule="UhTube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageViewController" title="MainPageViewController" interactionActivityTrackingBaseName="MainPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MainPageViewController" customModule="UhTube" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UhTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfH-vN-jfV">
+                                <rect key="frame" x="162" y="69" width="89" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Kbr-oi-rcf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y5M-ix-ygz">
+                                <rect key="frame" x="0.0" y="188" width="393" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="84g-7c-wqC">
+                                    <size key="itemSize" width="183" height="183"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="jjK-Cg-jYk" customClass="CollectionViewCell" customModule="UhTube" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aXB-W6-Wdg">
+                                            <rect key="frame" x="0.0" y="0.0" width="183" height="183"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1QS-Q5-sLQ">
+                                                    <rect key="frame" x="2" y="20" width="179" height="132"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6g-7P-RoI">
+                                                    <rect key="frame" x="2" y="154" width="179" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1QS-Q5-sLQ" firstAttribute="top" secondItem="aXB-W6-Wdg" secondAttribute="top" constant="20" id="9AB-BE-M4e"/>
+                                                <constraint firstAttribute="trailing" secondItem="1QS-Q5-sLQ" secondAttribute="trailing" constant="2" id="B4a-Dn-Ckn"/>
+                                                <constraint firstItem="c6g-7P-RoI" firstAttribute="centerX" secondItem="aXB-W6-Wdg" secondAttribute="centerX" id="ET4-YA-VQ9"/>
+                                                <constraint firstItem="c6g-7P-RoI" firstAttribute="top" secondItem="1QS-Q5-sLQ" secondAttribute="bottom" constant="2" id="FAh-A8-Wko"/>
+                                                <constraint firstItem="c6g-7P-RoI" firstAttribute="centerX" secondItem="aXB-W6-Wdg" secondAttribute="centerX" id="PjY-0C-hmW"/>
+                                                <constraint firstItem="1QS-Q5-sLQ" firstAttribute="leading" secondItem="aXB-W6-Wdg" secondAttribute="leading" constant="2" id="RVc-6r-Sjh"/>
+                                                <constraint firstItem="c6g-7P-RoI" firstAttribute="leading" secondItem="aXB-W6-Wdg" secondAttribute="leading" constant="2" id="ZrL-hv-ARo"/>
+                                                <constraint firstAttribute="bottom" secondItem="1QS-Q5-sLQ" secondAttribute="bottom" constant="31" id="fQ8-CB-4fX"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="183" height="183"/>
+                                        <connections>
+                                            <outlet property="youTubeImage" destination="1QS-Q5-sLQ" id="4eB-e8-VTE"/>
+                                            <outlet property="youTubeLavel" destination="c6g-7P-RoI" id="21x-Wy-5hM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5M-ix-ygz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Isu-Xd-ABq"/>
+                            <constraint firstItem="Y5M-ix-ygz" firstAttribute="top" secondItem="jfH-vN-jfV" secondAttribute="bottom" constant="83" id="Q0H-Qt-fTU"/>
+                            <constraint firstItem="Y5M-ix-ygz" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Yk4-uw-bt4"/>
+                            <constraint firstItem="jfH-vN-jfV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="ajD-Uf-2nd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Y5M-ix-ygz" secondAttribute="bottom" constant="13" id="akg-La-voE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jfH-vN-jfV" secondAttribute="trailing" constant="142" id="jhL-GD-3YC"/>
+                            <constraint firstItem="jfH-vN-jfV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="162" id="vaJ-9d-aGR"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item1" id="HGx-e6-RBh"/>
+                    <navigationItem key="navigationItem" id="Sxt-Cz-Zez"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Y5M-ix-ygz" id="kvn-lz-Zsd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="-2"/>
+            <point key="canvasLocation" x="1052.6717557251909" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
