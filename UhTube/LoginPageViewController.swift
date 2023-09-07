@@ -42,7 +42,7 @@ class LoginPageViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 24)
         button.backgroundColor = .red
         button.layer.cornerRadius = 50 / 2
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginButtonDidTap), for: .touchUpInside)
         return button
         
         
@@ -54,7 +54,7 @@ class LoginPageViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16)
         button.layer.cornerRadius = 50 / 2
-        button.addTarget(self, action: #selector(buttonDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(signUpButtonDidTap), for: .touchUpInside)
         return button
         
         
@@ -65,9 +65,31 @@ class LoginPageViewController: UIViewController {
         
         configureUI()
     }
+    @objc func loginButtonDidTap() {
+        if idTextField.text == UserManager.shared.getUser()?.email && pwTextField.text == UserManager.shared.getUser()?.password {
+            let myTabVC = UIStoryboard.init(name: "Main", bundle: nil)
+            guard let nextVC = myTabVC.instantiateViewController(withIdentifier: "Main")as? UITabBarController else {return}
+            nextVC.modalPresentationStyle = .fullScreen
+            self.present(nextVC, animated: true, completion: nil)
+            
+            
+        }
+        else {
+            let alert = UIAlertController(title: "아이디와 패스워드를 확인하세요", message: nil , preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "돌아가기", style: UIAlertAction.Style.default, handler: nil)
+            alert.addAction(onAction)
+            present(alert, animated: true, completion: nil)
+        }
+
+    }
     
-    @objc func buttonDidTap() {
+    @objc func signUpButtonDidTap() {
        print("DEBUG: button tapped!")
+        let signInPage = UIStoryboard.init(name: "SignInPage", bundle: nil)
+        guard let signInPageViewController = signInPage.instantiateViewController(withIdentifier: "SignInPage")as? SignInPageViewController else {return}
+
+        signInPageViewController.modalPresentationStyle = .fullScreen
+        self.show(signInPageViewController, sender: nil)
     }
 
     func configureUI() {

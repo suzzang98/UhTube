@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 class SignInPageViewController: UIViewController {
     
@@ -14,19 +13,6 @@ class SignInPageViewController: UIViewController {
         let scrollView = UIScrollView()
         
         return scrollView
-    }()
-    
-    // 네비게이션 바 생성
-    let signInPageNavigationBar: UINavigationBar = {
-        let navigationBar = UINavigationBar()
-        navigationBar.isTranslucent = false
-        return navigationBar
-    }()
-    
-    let naviItem: UINavigationItem = {
-        let navigationItem = UINavigationItem(title: "Sign In")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: nil, action: nil)
-        return navigationItem
     }()
     
     let largeTitleLabel: UILabel = {
@@ -122,26 +108,25 @@ class SignInPageViewController: UIViewController {
         
     }
     func addConfigue() {
-        configureSignInPageNavigationBar()
-        //        configureScrollView()
         configureLabelsStackView()
         configureTextFieldsStackView()
         configureCreateButton()
     }
     
-    func configureSignInPageNavigationBar() {
-        signInPageNavigationBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(signInPageNavigationBar)
-        
-        signInPageNavigationBar.setItems([naviItem], animated: true)
-        
-        NSLayoutConstraint.activate([
-            signInPageNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            signInPageNavigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            signInPageNavigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
-    }
+//    func configureSignInPageNavigationBar() {
+//        signInPageNavigationBar.translatesAutoresizingMaskIntoConstraints = false
+//
+//        view.addSubview(signInPageNavigationBar)
+//
+//        signInPageNavigationBar.setItems([naviItem], animated: true)
+//
+//        NSLayoutConstraint.activate([
+//            signInPageNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            signInPageNavigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            signInPageNavigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+//        ])
+//
+//    }
     
     //    func configureScrollView() {
     //        signInPageScrollView.addSubview(labelsStackView)
@@ -167,7 +152,7 @@ class SignInPageViewController: UIViewController {
         view.addSubview(labelsStackView)
         
         NSLayoutConstraint.activate([
-            labelsStackView.topAnchor.constraint(equalTo: signInPageNavigationBar.bottomAnchor, constant: 50),
+            labelsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             labelsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30)
         ])
     }
@@ -225,8 +210,10 @@ class SignInPageViewController: UIViewController {
             let user = User(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
             UserManager.shared.saveUser(user)
             //화면 전환 코드 추가
+            self.navigationController?.popViewController(animated: true)
         }
     }
+    
     
 }
 //extension UIViewController {
@@ -259,22 +246,3 @@ class SignInPageViewController: UIViewController {
 //        }
 //    }
 //}
-
-#if DEBUG
-struct ViewControllerRepresentable: UIViewControllerRepresentable{
-    //  update
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-    }
-    @available(iOS 13.0, *)
-    func makeUIViewController(context: Context) -> UIViewController {
-        ViewController()
-    }
-    //  makeui
-}
-struct ViewController_Previews: PreviewProvider{
-    static var previews: some View{
-        ViewControllerRepresentable()
-            .previewDisplayName("아이폰 14")
-    }
-}
-#endif

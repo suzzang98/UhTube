@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1DBA4DA62AA99874009E615C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA4DA52AA99874009E615C /* User.swift */; };
+		1DBA4DA82AA9E50B009E615C /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBA4DA72AA9E50B009E615C /* MainTabBarViewController.swift */; };
 		1DD80E922AA56F3D00C570F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80E912AA56F3D00C570F7 /* AppDelegate.swift */; };
 		1DD80E942AA56F3D00C570F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80E932AA56F3D00C570F7 /* SceneDelegate.swift */; };
 		1DD80E962AA56F3D00C570F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80E952AA56F3D00C570F7 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1DBA4DA52AA99874009E615C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1DBA4DA72AA9E50B009E615C /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		1DD80E8E2AA56F3D00C570F7 /* UhTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UhTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD80E912AA56F3D00C570F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD80E932AA56F3D00C570F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				1DD80E912AA56F3D00C570F7 /* AppDelegate.swift */,
 				1DD80E932AA56F3D00C570F7 /* SceneDelegate.swift */,
+				1DBA4DA72AA9E50B009E615C /* MainTabBarViewController.swift */,
 				1DD80E952AA56F3D00C570F7 /* ViewController.swift */,
 				1DD80E972AA56F3D00C570F7 /* Main.storyboard */,
 				1DD80E9C2AA56F3F00C570F7 /* LaunchScreen.storyboard */,
@@ -97,11 +100,8 @@
 				1DD80EC12AA5715600C570F7 /* DetailPageViewController.swift */,
 				1DD80EB22AA5706100C570F7 /* MyPage.storyboard */,
 				1DD80EC32AA5716100C570F7 /* MyPageViewController.swift */,
-
 				30CF1B472AA867740000F5E6 /* MypageView.swift */,
-
 				1DBA4DA52AA99874009E615C /* User.swift */,
-
 			);
 			path = UhTube;
 			sourceTree = "<group>";
@@ -185,6 +185,7 @@
 				1DD80EBC2AA5710200C570F7 /* MainPageViewController.swift in Sources */,
 				1DD80E962AA56F3D00C570F7 /* ViewController.swift in Sources */,
 				1DD80E922AA56F3D00C570F7 /* AppDelegate.swift in Sources */,
+				1DBA4DA82AA9E50B009E615C /* MainTabBarViewController.swift in Sources */,
 				30CF1B482AA867740000F5E6 /* MypageView.swift in Sources */,
 				1DD80EC02AA5714700C570F7 /* LoginPageViewController.swift in Sources */,
 				1DD80EC22AA5715600C570F7 /* DetailPageViewController.swift in Sources */,
