@@ -12,7 +12,6 @@
 		1DD80E942AA56F3D00C570F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80E932AA56F3D00C570F7 /* SceneDelegate.swift */; };
 		1DD80E962AA56F3D00C570F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80E952AA56F3D00C570F7 /* ViewController.swift */; };
 		1DD80E992AA56F3D00C570F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80E972AA56F3D00C570F7 /* Main.storyboard */; };
-		1DD80E9B2AA56F3F00C570F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80E9A2AA56F3F00C570F7 /* Assets.xcassets */; };
 		1DD80E9E2AA56F3F00C570F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80E9C2AA56F3F00C570F7 /* LaunchScreen.storyboard */; };
 		1DD80EA62AA56FC600C570F7 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80EA52AA56FC600C570F7 /* MainPage.storyboard */; };
 		1DD80EAB2AA5700E00C570F7 /* SignInPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD80EAA2AA5700E00C570F7 /* SignInPage.storyboard */; };
@@ -34,7 +33,6 @@
 		1DD80E932AA56F3D00C570F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1DD80E952AA56F3D00C570F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1DD80E982AA56F3D00C570F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1DD80E9A2AA56F3F00C570F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DD80E9D2AA56F3F00C570F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DD80E9F2AA56F3F00C570F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DD80EA52AA56FC600C570F7 /* MainPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				1DD80E952AA56F3D00C570F7 /* ViewController.swift */,
 				1DD80E972AA56F3D00C570F7 /* Main.storyboard */,
 				1DD80E9C2AA56F3F00C570F7 /* LaunchScreen.storyboard */,
-				1DD80E9A2AA56F3F00C570F7 /* Assets.xcassets */,
 				1DD80E9F2AA56F3F00C570F7 /* Info.plist */,
 				1DD80EA52AA56FC600C570F7 /* MainPage.storyboard */,
 				1DD80EBB2AA5710200C570F7 /* MainPageViewController.swift */,
@@ -97,11 +94,8 @@
 				1DD80EC12AA5715600C570F7 /* DetailPageViewController.swift */,
 				1DD80EB22AA5706100C570F7 /* MyPage.storyboard */,
 				1DD80EC32AA5716100C570F7 /* MyPageViewController.swift */,
-
 				30CF1B472AA867740000F5E6 /* MypageView.swift */,
-
 				1DBA4DA52AA99874009E615C /* User.swift */,
-
 			);
 			path = UhTube;
 			sourceTree = "<group>";
@@ -169,7 +163,6 @@
 				1DD80E9E2AA56F3F00C570F7 /* LaunchScreen.storyboard in Resources */,
 				1DD80EB32AA5706100C570F7 /* MyPage.storyboard in Resources */,
 				1DD80EAB2AA5700E00C570F7 /* SignInPage.storyboard in Resources */,
-				1DD80E9B2AA56F3F00C570F7 /* Assets.xcassets in Resources */,
 				1DD80E992AA56F3D00C570F7 /* Main.storyboard in Resources */,
 				1DD80EAF2AA5703500C570F7 /* LoginPage.storyboard in Resources */,
 			);

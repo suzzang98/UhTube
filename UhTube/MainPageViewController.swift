@@ -10,40 +10,89 @@ import Foundation
 
 
 
-
+let screatKey = "AIzaSyAztsrk966bO8zr9PfUhsUpsmRpZw28xKA"
+var selectNum : Int = 1
+var json2: Welcome?
 
 class MainPageViewController: UIViewController{
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
- 
-    
-    var uImage = [#imageLiteral(resourceName: "노마드코더3"), #imageLiteral(resourceName: "노마드코더9"), #imageLiteral(resourceName: "노마드코더1"), #imageLiteral(resourceName: "노마드코더4"), #imageLiteral(resourceName: "노마드코더2"), #imageLiteral(resourceName: "노마드코더7"), #imageLiteral(resourceName: "노마드코더8"), #imageLiteral(resourceName: "메모리저장소 구현")]
-    
-    fileprivate let systemimageNameArray = [
-        "프로그래밍 혼자서 독학?", "채팅으로만 코딩한 결과", "프로그래밍 오해와 진실", "실수는 줄이고 빠르게 성장하는 방법", "코린이 시절 알았으면 좋았을 것들", "풀스택 개발자가 뭔가요?", "노마드코더 유용한 잡담들", "메모리저장소 구현"
-    ]
-    
+    @IBOutlet weak var mainSearchText: UITextField!
+    @IBAction func mainSearchButton(_ sender: Any) {
+        searchText = mainSearchText.text ?? "Nomad Coders"
+        mainSearchText.text = ""
+        respondData()
+    }
 
 
+    
+    var searchText : String = "Nomad Coders"
+    var json : Welcome?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("CollectionVC - ViewDidLoad() called")
+       
+        // 통신 시작
+        respondData()
+        
+        // 키보드 내리기
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+         tap.cancelsTouchesInView = false
+         view.addGestureRecognizer(tap)
         
         // 콜렉션뷰에 대한 설정
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        mainSearchText.layer.borderWidth = 1.0
+        mainSearchText.layer.cornerRadius = 5
         
         // 콜렉션뷰 레이아웃을 설정한다.
         self.collectionView.collectionViewLayout = createCompositionalLayout()
         
+    }
+    
+    func respondData() {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "youtube.googleapis.com"
+        urlComponents.path = "/youtube/v3/search"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "part", value: "snippet"),
+            URLQueryItem(name: "maxResults", value: "11"),
+            URLQueryItem(name: "q", value: searchText),
+            URLQueryItem(name: "key", value: screatKey),
+        ]
+        let url = urlComponents.url!
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            let cellId = String(describing: CollectionViewCell.self)
+            
+            if let error = error {
+                print("Error: \(error)")
+            } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                do {
+                    self.json = try JSONDecoder().decode(Welcome.self, from: data)
+                    DispatchQueue.main.async { [self] in
+                        json2 = self.json
+                        self.collectionView.reloadData()
+                    }
+                } catch {
+                    print("Error parsing JSON response")
+                }
+            } else {
+                print("에러에러에러에러")
+            }
+        }
+        task.resume()
     }
 }
 
@@ -88,6 +137,35 @@ extension MainPageViewController {
         return layout
     }
 }
+extension MainPageViewController : UITextViewDelegate {
+ 
+    func textViewDidChange(_ textView: UITextView) {
+        if mainSearchText.text!.count > 10 {
+            return mainSearchText.deleteBackward()
+        }
+        // 텍스트 뷰 터치 시 키보드 올리기
+        self.mainSearchText.becomeFirstResponder()
+    }
+    
+ 
+    
+    @objc func keyboardUp(notification:NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+           let keyboardRectangle = keyboardFrame.cgRectValue
+       
+            UIView.animate(
+                withDuration: 0.3
+                , animations: {
+                    self.view.transform = CGAffineTransform(translationX: 0, y: -keyboardRectangle.height)
+                }
+            )
+        }
+    }
+    
+    @objc func keyboardDown() {
+        self.view.transform = .identity
+    }
+}
 
 
 
@@ -95,37 +173,45 @@ extension MainPageViewController: UICollectionViewDataSource{
    
     // 각 섹션에 들어가는 아이템 갯수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.systemimageNameArray.count
+        return 10
     }
     
     // 각 콜렉션뷰셀에 대한 설정
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellId = String(describing: CollectionViewCell.self)
-        print("cellId : \(cellId)")
+
         
         // 셀 인스턴스
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CollectionViewCell
         
+        // 수정내역
+        print(self.json?.items[indexPath.row + 1].id.videoId)
+        var buty : String = ""
+   
+        if (self.json?.items[indexPath.row + 1].id.videoId) != nil {
+            buty = (self.json?.items[indexPath.row + 1].id.videoId)!
+            cell.LavelSetup(with: json?.items[indexPath.row + 1].snippet.title ?? "제목")
+            
+        }else{
+            buty = "qrpyswoATQ8"
+        }
         
+        cell.CollectionViewCellSetup(with: "https://img.youtube.com/vi/\(buty)/0.jpg")
+            //code
         
-        cell.imageName = self.systemimageNameArray[indexPath.item]
+        // 중대한 문제 통신이 끝나기전에 화면이 구성되서 에러남 통신되고 사진 들어옴
         
-//        cell.contentView.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-//        cell.contentView.layer.cornerRadius = 4
-//        cell.contentView.layer.borderWidth = 1
-//        cell.contentView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-         
-        cell.youTubeImage.image = uImage[indexPath.item]
-
         return cell
     }
+    
 }
 
 
 extension MainPageViewController: UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectNum = indexPath.row + 1
         let detail = UIStoryboard.init(name: "DetailPage", bundle: nil)
         guard let detailController = detail.instantiateViewController(withIdentifier: "DetailPage")as? DetailPageViewController else {return}
 
@@ -133,17 +219,6 @@ extension MainPageViewController: UICollectionViewDelegate{
         self.present(detailController, animated: true, completion: nil)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 class CollectionViewCell: UICollectionViewCell{
@@ -155,6 +230,13 @@ class CollectionViewCell: UICollectionViewCell{
     @IBOutlet weak var youTubeLavel: UILabel!
     
     
+    func CollectionViewCellSetup(with feedElement: String) {
+        youTubeImage.loadImage(url: feedElement)
+    }
+    
+    func LavelSetup(with labe: String) {
+        youTubeLavel.text = labe
+    }
     
     
     var imageName : String = ""{
@@ -165,6 +247,82 @@ class CollectionViewCell: UICollectionViewCell{
             // 라벨 설정
             self.youTubeLavel.text = imageName
 
+        }
+    }
+}
+
+struct Welcome: Codable {
+    let kind, etag, nextPageToken, regionCode: String
+    let pageInfo: PageInfo
+    let items: [Item]
+}
+
+// MARK: - Item
+struct Item: Codable {
+    let kind, etag: String
+    let id: ID
+    let snippet: Snippet
+}
+
+// MARK: - ID
+struct ID: Codable {
+    let kind: String
+    let channelID : String?
+    let videoId: String?
+
+    enum CodingKeys: String, CodingKey {
+        case kind
+        case channelID = "channelId"
+        case videoId
+    }
+}
+
+// MARK: - Snippet
+struct Snippet: Codable {
+    let publishedAt: String
+    let channelID, title, description: String
+    let thumbnails: Thumbnails
+    let channelTitle, liveBroadcastContent: String
+    let publishTime: String
+
+    enum CodingKeys: String, CodingKey {
+        case publishedAt
+        case channelID = "channelId"
+        case title, description, thumbnails, channelTitle, liveBroadcastContent, publishTime
+    }
+}
+
+// MARK: - Thumbnails
+struct Thumbnails: Codable {
+    let thumbnailsDefault, medium, high: Default
+
+        enum CodingKeys: String, CodingKey {
+            case thumbnailsDefault = "default"
+            case medium, high
+        }
+}
+
+// MARK: - Default
+struct Default: Codable {
+    let url: URL
+}
+
+// MARK: - PageInfo
+struct PageInfo: Codable {
+    let totalResults, resultsPerPage: Int
+}
+
+extension UIImageView {
+    func loadImage(url: String) {
+        guard let url = URL(string: url) else { return }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
         }
     }
 }
