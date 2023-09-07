@@ -95,7 +95,7 @@ extension MyPageViewController {
     }
         
     @objc func deleteButtonTapped(sender: UIButton) {
-        let alert = UIAlertController(title: "계정 삭제", message: "삭제된 계정은 복구될 수 없습니다!", preferredStyle: .alert)
+        let alert = UIAlertController(title: "계정 삭제", message: "삭제된 계정은 복구할 수 없습니다!", preferredStyle: .alert)
         let confirmButton = UIAlertAction(title: "Confirm", style: .default) { _ in
             if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginPageViewController {
                 self.navigationController?.pushViewController(loginVC, animated: true)
