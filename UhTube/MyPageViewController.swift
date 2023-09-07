@@ -89,7 +89,7 @@ extension MyPageViewController {
 // LoginPageViewController연결된 identity: 스토리보드id 수정 필요!!
 extension MyPageViewController {
     @objc func logoutTapped(sender: UIButton) {
-        if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginPageViewController {
+        if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController {
             navigationController?.pushViewController(loginVC, animated: true)
         }
     }
@@ -97,7 +97,7 @@ extension MyPageViewController {
     @objc func deleteButtonTapped(sender: UIButton) {
         let alert = UIAlertController(title: "계정 삭제", message: "삭제된 계정은 복구할 수 없습니다!", preferredStyle: .alert)
         let confirmButton = UIAlertAction(title: "Confirm", style: .default) { _ in
-            if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "loginVC") as? LoginPageViewController {
+            if let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController {
                 self.navigationController?.pushViewController(loginVC, animated: true)
             }
             UserManager.shared.deleteUser()
