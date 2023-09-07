@@ -63,11 +63,19 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UhTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjT-4C-9G7">
+                                <rect key="frame" x="158" y="74" width="77" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="t1W-RT-WKn" secondAttribute="trailing" id="DQF-3Z-VTA"/>
+                            <constraint firstItem="pjT-4C-9G7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="G1W-8r-Omj"/>
+                            <constraint firstItem="pjT-4C-9G7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OTq-gL-G6C"/>
                             <constraint firstItem="t1W-RT-WKn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="SvH-oz-lSJ"/>
                             <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="jI4-JY-kcF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="t1W-RT-WKn" secondAttribute="bottom" id="jo8-Cc-3ey"/>
