@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item1-->
+        <!--Main Page View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="MainPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MainPageViewController" customModule="UhTube" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,7 +111,7 @@
                             <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="VAj-FS-7Sh" secondAttribute="bottom" id="ska-gr-0B3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item1" id="HGx-e6-RBh"/>
+                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="HGx-e6-RBh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="t1W-RT-WKn" id="tAG-Ug-hVs"/>
@@ -124,6 +124,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
