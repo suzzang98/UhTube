@@ -124,6 +124,14 @@ extension MainPageViewController: UICollectionViewDataSource{
 
 
 extension MainPageViewController: UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detail = UIStoryboard.init(name: "DetailPage", bundle: nil)
+        guard let detailController = detail.instantiateViewController(withIdentifier: "DetailPage")as? DetailPageViewController else {return}
+
+        detailController.modalPresentationStyle = .fullScreen
+        self.present(detailController, animated: true, completion: nil)
+    }
 }
 
 
