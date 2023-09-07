@@ -24,7 +24,6 @@
 		1DD80EC22AA5715600C570F7 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80EC12AA5715600C570F7 /* DetailPageViewController.swift */; };
 		1DD80EC42AA5716100C570F7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD80EC32AA5716100C570F7 /* MyPageViewController.swift */; };
 		30CF1B482AA867740000F5E6 /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF1B472AA867740000F5E6 /* MypageView.swift */; };
-		30CF1B4A2AA867A00000F5E6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CF1B492AA867A00000F5E6 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +46,6 @@
 		1DD80EC12AA5715600C570F7 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		1DD80EC32AA5716100C570F7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		30CF1B472AA867740000F5E6 /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
-		30CF1B492AA867A00000F5E6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 				1DD80EC12AA5715600C570F7 /* DetailPageViewController.swift */,
 				1DD80EB22AA5706100C570F7 /* MyPage.storyboard */,
 				1DD80EC32AA5716100C570F7 /* MyPageViewController.swift */,
-				30CF1B492AA867A00000F5E6 /* User.swift */,
 				30CF1B472AA867740000F5E6 /* MypageView.swift */,
 			);
 			path = UhTube;
@@ -187,7 +184,6 @@
 				1DD80EC22AA5715600C570F7 /* DetailPageViewController.swift in Sources */,
 				1DD80E942AA56F3D00C570F7 /* SceneDelegate.swift in Sources */,
 				1DD80EBE2AA5713A00C570F7 /* SignInPageViewController.swift in Sources */,
-				30CF1B4A2AA867A00000F5E6 /* User.swift in Sources */,
 				1DD80EC42AA5716100C570F7 /* MyPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
