@@ -10,9 +10,11 @@ import Foundation
 
 
 
-let screatKey = "AIzaSyAztsrk966bO8zr9PfUhsUpsmRpZw28xKA"
+let screatKey = "AIzaSyA4YVD1ugJ3TS05DCUVr0cVwNpvUGsqlqE"
 var selectNum : Int = 1
-var json2: Welcome?
+var jsonData: Array<String>?
+var jsonTitle: Array<String>?
+var jsonDescription: Array<String>?
 
 class MainPageViewController: UIViewController{
     
@@ -62,7 +64,7 @@ extension MainPageViewController {
         urlComponents.path = "/youtube/v3/search"
         urlComponents.queryItems = [
             URLQueryItem(name: "part", value: "snippet"),
-            URLQueryItem(name: "maxResults", value: "11"),
+            URLQueryItem(name: "maxResults", value: "20"),
             URLQueryItem(name: "q", value: searchText),
             URLQueryItem(name: "key", value: screatKey),
         ]
@@ -81,7 +83,21 @@ extension MainPageViewController {
                 do {
                     self.json = try JSONDecoder().decode(Welcome.self, from: data)
                     DispatchQueue.main.async { [self] in
-                        json2 = self.json
+//                        print((self.json?.items[1])!.)
+                        jsonData = []
+                        jsonTitle = []
+                        jsonDescription = []
+                     
+                        for index in (self.json?.items)!{
+                            print(index.id)
+                            if(index.id.videoId != nil){
+                                jsonData?.append((index.id.videoId)!)
+                                jsonTitle?.append(index.snippet.title)
+                                jsonDescription?.append(index.snippet.description)
+                            }
+                        }
+                 
+                        
                         self.collectionView.reloadData()
                     }
                 } catch {
@@ -185,16 +201,16 @@ extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CollectionViewCell
         
         // 수정내역
-        print(self.json?.items[indexPath.row + 1].id.videoId)
+       
         var buty : String = ""
-   
-        if (self.json?.items[indexPath.row + 1].id.videoId) != nil {
-            buty = (self.json?.items[indexPath.row + 1].id.videoId)!
-            cell.LavelSetup(with: json?.items[indexPath.row + 1].snippet.title ?? "제목")
-            
-        }else{
-            buty = "qrpyswoATQ8"
+
+        if(jsonData?[indexPath.row] == nil){
+            buty = "BBvvv79JeR4"
+        }else {
+            buty = jsonData![indexPath.row]
+            cell.LavelSetup(with: jsonTitle![indexPath.row])
         }
+        
         
         cell.CollectionViewCellSetup(with: "https://img.youtube.com/vi/\(buty)/0.jpg")
             //code
@@ -205,7 +221,7 @@ extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectNum = indexPath.row + 1
+        selectNum = indexPath.row
         let detail = UIStoryboard.init(name: "DetailPage", bundle: nil)
         guard let detailController = detail.instantiateViewController(withIdentifier: "DetailPage")as? DetailPageViewController else {return}
 

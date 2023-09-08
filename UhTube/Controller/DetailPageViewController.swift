@@ -11,9 +11,9 @@ class DetailPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailTitleLabel.text = json2?.items[selectNum].snippet.title
+        detailTitleLabel.text = jsonTitle![selectNum]
         // Do any additional setup after loading the view.
-        detaildecText.text = json2?.items[selectNum].snippet.description
+        detaildecText.text = jsonDescription![selectNum]
         getVideo()
     }
     
@@ -26,7 +26,7 @@ class DetailPageViewController: UIViewController {
     }
     
     func getVideo(){
-        guard let url = URL(string: "https://www.youtube.com/embed/\((json2?.items[selectNum].id.videoId)!)") else { return  }
+        guard let url = URL(string: "https://www.youtube.com/embed/\(jsonData![selectNum])") else { return  }
         videoView.loadRequest(URLRequest(url: url))
     }
     /*

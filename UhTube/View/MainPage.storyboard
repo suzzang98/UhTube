@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t1W-RT-WKn">
-                                <rect key="frame" x="0.0" y="159" width="393" height="610"/>
+                                <rect key="frame" x="0.0" y="161" width="393" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3w7-8l-1zy">
                                     <size key="itemSize" width="187" height="186"/>
@@ -70,7 +70,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAj-FS-7Sh">
-                                <rect key="frame" x="16" y="117" width="310" height="42"/>
+                                <rect key="frame" x="16" y="117" width="310" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="310" id="cqm-gI-Qi1"/>
                                 </constraints>
@@ -78,10 +78,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Uz-zx-5A5">
-                                <rect key="frame" x="330" y="117" width="55" height="42"/>
+                                <rect key="frame" x="330" y="117" width="55" height="34"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="3Ti-aL-CGz"/>
                                     <constraint firstAttribute="width" constant="55" id="MG1-QM-x5s"/>
-                                    <constraint firstAttribute="height" constant="42" id="Ymc-Zg-LBo"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="검색">
@@ -105,11 +105,9 @@
                             <constraint firstItem="pjT-4C-9G7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="OTq-gL-G6C"/>
                             <constraint firstItem="t1W-RT-WKn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="SvH-oz-lSJ"/>
                             <constraint firstItem="9Uz-zx-5A5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="330" id="d2B-sU-zaD"/>
-                            <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="9Uz-zx-5A5" secondAttribute="bottom" id="frN-AI-Ifc"/>
-                            <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="jI4-JY-kcF"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="t1W-RT-WKn" secondAttribute="bottom" id="jo8-Cc-3ey"/>
                             <constraint firstItem="9Uz-zx-5A5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="58" id="oxj-pt-F0W"/>
-                            <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="VAj-FS-7Sh" secondAttribute="bottom" id="ska-gr-0B3"/>
+                            <constraint firstItem="t1W-RT-WKn" firstAttribute="top" secondItem="VAj-FS-7Sh" secondAttribute="bottom" constant="10" id="ska-gr-0B3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="house" catalog="system" id="HGx-e6-RBh"/>
