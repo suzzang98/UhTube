@@ -9,11 +9,11 @@ import UIKit
 
 class SignInPageViewController: UIViewController {
     
-    let signInPageScrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        
-        return scrollView
-    }()
+//    let signInPageScrollView: UIScrollView = {
+//        let scrollView = UIScrollView()
+//        
+//        return scrollView
+//    }()
     
     let largeTitleLabel: UILabel = {
         let label = UILabel()
@@ -113,37 +113,7 @@ class SignInPageViewController: UIViewController {
         configureCreateButton()
     }
     
-//    func configureSignInPageNavigationBar() {
-//        signInPageNavigationBar.translatesAutoresizingMaskIntoConstraints = false
-//
-//        view.addSubview(signInPageNavigationBar)
-//
-//        signInPageNavigationBar.setItems([naviItem], animated: true)
-//
-//        NSLayoutConstraint.activate([
-//            signInPageNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            signInPageNavigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            signInPageNavigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-//        ])
-//
-//    }
-    
-    //    func configureScrollView() {
-    //        signInPageScrollView.addSubview(labelsStackView)
-    //        signInPageScrollView.addSubview(textFieldsStackView)
-    //        signInPageScrollView.addSubview(createButton)
-    //
-    //        signInPageScrollView.translatesAutoresizingMaskIntoConstraints = false
-    //
-    //        NSLayoutConstraint.activate([
-    //            signInPageScrollView.topAnchor.constraint(equalTo: signInPageNavigationBar.bottomAnchor),
-    //            signInPageScrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-    //            signInPageScrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-    //            signInPageScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    //        ])
-    //
-    //
-    //    }
+
     func configureLabelsStackView() {
         labelsStackView.addArrangedSubview(largeTitleLabel)
         labelsStackView.addArrangedSubview(detailLabel)

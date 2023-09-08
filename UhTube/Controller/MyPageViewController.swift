@@ -90,8 +90,11 @@ extension MyPageViewController {
 // LoginPageViewController연결된 identity: 스토리보드id 수정 필요!!
 extension MyPageViewController {
     @objc func logoutTapped(sender: UIButton) {
-        let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
-        guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
+        let loginPage = UIStoryboard.init(name: "LoginPage", bundle: nil)
+        guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginNavigation") as? UINavigationController else { return }
+
+//        let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
+//        guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
 
         loginPageController.modalPresentationStyle = .fullScreen
         present(loginPageController, animated: true, completion: nil)
@@ -101,8 +104,10 @@ extension MyPageViewController {
         let alert = UIAlertController(title: "계정 삭제", message: "삭제된 계정은 복구할 수 없습니다!", preferredStyle: .alert)
         let confirmButton = UIAlertAction(title: "Confirm", style: .default) { _ in
             
-            let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
-            guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
+            let loginPage = UIStoryboard.init(name: "LoginPage", bundle: nil)
+            guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginNavigation") as? UINavigationController else { return }
+//            let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
+//            guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
             
             loginPageController.modalPresentationStyle = .fullScreen
             self.present(loginPageController, animated: true, completion: nil)

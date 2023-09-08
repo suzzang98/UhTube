@@ -27,7 +27,7 @@
         <!--Navigation Controller-->
         <scene sceneID="BDR-kv-dxy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HbR-yh-FMa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigation" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HbR-yh-FMa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4N0-Ug-EFS">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>

@@ -16,21 +16,17 @@ var json2: Welcome?
 
 class MainPageViewController: UIViewController{
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var mainSearchText: UITextField!
+    
     @IBAction func mainSearchButton(_ sender: Any) {
         searchText = mainSearchText.text ?? "Nomad Coders"
         mainSearchText.text = ""
         respondData()
     }
-
-
     
     var searchText : String = "Nomad Coders"
     var json : Welcome?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +51,10 @@ class MainPageViewController: UIViewController{
         self.collectionView.collectionViewLayout = createCompositionalLayout()
         
     }
-    
+
+}
+
+extension MainPageViewController {
     func respondData() {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -169,7 +168,7 @@ extension MainPageViewController : UITextViewDelegate {
 
 
 
-extension MainPageViewController: UICollectionViewDataSource{
+extension MainPageViewController: UICollectionViewDataSource, UICollectionViewDelegate{
    
     // 각 섹션에 들어가는 아이템 갯수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -205,11 +204,6 @@ extension MainPageViewController: UICollectionViewDataSource{
         return cell
     }
     
-}
-
-
-extension MainPageViewController: UICollectionViewDelegate{
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectNum = indexPath.row + 1
         let detail = UIStoryboard.init(name: "DetailPage", bundle: nil)
@@ -220,109 +214,3 @@ extension MainPageViewController: UICollectionViewDelegate{
     }
 }
 
-
-class CollectionViewCell: UICollectionViewCell{
-    
-    
-    
-    @IBOutlet weak var youTubeImage: UIImageView!
-    
-    @IBOutlet weak var youTubeLavel: UILabel!
-    
-    
-    func CollectionViewCellSetup(with feedElement: String) {
-        youTubeImage.loadImage(url: feedElement)
-    }
-    
-    func LavelSetup(with labe: String) {
-        youTubeLavel.text = labe
-    }
-    
-    
-    var imageName : String = ""{
-        didSet{
-            print("CollectionViewCell imageName - didSet() : \(imageName)")
-            // 셀의 UI 설정
-            self.youTubeImage.image = UIImage(systemName: imageName)
-            // 라벨 설정
-            self.youTubeLavel.text = imageName
-
-        }
-    }
-}
-
-struct Welcome: Codable {
-    let kind, etag, nextPageToken, regionCode: String
-    let pageInfo: PageInfo
-    let items: [Item]
-}
-
-// MARK: - Item
-struct Item: Codable {
-    let kind, etag: String
-    let id: ID
-    let snippet: Snippet
-}
-
-// MARK: - ID
-struct ID: Codable {
-    let kind: String
-    let channelID : String?
-    let videoId: String?
-
-    enum CodingKeys: String, CodingKey {
-        case kind
-        case channelID = "channelId"
-        case videoId
-    }
-}
-
-// MARK: - Snippet
-struct Snippet: Codable {
-    let publishedAt: String
-    let channelID, title, description: String
-    let thumbnails: Thumbnails
-    let channelTitle, liveBroadcastContent: String
-    let publishTime: String
-
-    enum CodingKeys: String, CodingKey {
-        case publishedAt
-        case channelID = "channelId"
-        case title, description, thumbnails, channelTitle, liveBroadcastContent, publishTime
-    }
-}
-
-// MARK: - Thumbnails
-struct Thumbnails: Codable {
-    let thumbnailsDefault, medium, high: Default
-
-        enum CodingKeys: String, CodingKey {
-            case thumbnailsDefault = "default"
-            case medium, high
-        }
-}
-
-// MARK: - Default
-struct Default: Codable {
-    let url: URL
-}
-
-// MARK: - PageInfo
-struct PageInfo: Codable {
-    let totalResults, resultsPerPage: Int
-}
-
-extension UIImageView {
-    func loadImage(url: String) {
-        guard let url = URL(string: url) else { return }
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}

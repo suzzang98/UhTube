@@ -57,7 +57,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="187" height="186"/>
                                         <connections>
-                                            <outlet property="youTubeImage" destination="Juu-8A-ft8" id="I08-Uu-1xI"/>
+                                            <outlet property="youTubeImage" destination="Juu-8A-ft8" id="eot-YC-h8y"/>
                                             <outlet property="youTubeLavel" destination="KKh-Ue-aph" id="z2g-Jz-7xr"/>
                                         </connections>
                                     </collectionViewCell>
@@ -88,6 +88,7 @@
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                     </backgroundConfiguration>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="mainSearchButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="reM-d8-oZA"/>
@@ -125,6 +126,9 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
