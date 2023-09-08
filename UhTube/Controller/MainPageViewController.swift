@@ -83,21 +83,16 @@ extension MainPageViewController {
                 do {
                     self.json = try JSONDecoder().decode(Welcome.self, from: data)
                     DispatchQueue.main.async { [self] in
-//                        print((self.json?.items[1])!.)
                         jsonData = []
                         jsonTitle = []
                         jsonDescription = []
-                     
                         for index in (self.json?.items)!{
-                            print(index.id)
                             if(index.id.videoId != nil){
                                 jsonData?.append((index.id.videoId)!)
                                 jsonTitle?.append(index.snippet.title)
                                 jsonDescription?.append(index.snippet.description)
                             }
                         }
-                 
-                        
                         self.collectionView.reloadData()
                     }
                 } catch {
