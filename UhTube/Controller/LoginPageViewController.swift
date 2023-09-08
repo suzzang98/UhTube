@@ -85,9 +85,6 @@ class LoginPageViewController: UIViewController {
             
         }
         else {
-            print("id\(idTextField.text)")
-            print("email\(UserManager.shared.getUser()?.email)")
-            print(UserManager.shared.getUser())
             let alert = UIAlertController(title: "아이디와 패스워드를 확인하세요", message: nil , preferredStyle: UIAlertController.Style.alert)
             let onAction = UIAlertAction(title: "돌아가기", style: UIAlertAction.Style.default, handler: nil)
             alert.addAction(onAction)
@@ -97,12 +94,19 @@ class LoginPageViewController: UIViewController {
     }
     
     @objc func signUpButtonDidTap() {
-       print("DEBUG: button tapped!")
-        let signInPage = UIStoryboard.init(name: "SignInPage", bundle: nil)
-        guard let signInPageViewController = signInPage.instantiateViewController(withIdentifier: "SignInPage")as? SignInPageViewController else {return}
-
-        signInPageViewController.modalPresentationStyle = .fullScreen
-        self.show(signInPageViewController, sender: nil)
+        if UserManager.shared.getUser()?.email == nil && UserManager.shared.getUser()?.password == nil {
+            let signInPage = UIStoryboard.init(name: "SignInPage", bundle: nil)
+            guard let signInPageViewController = signInPage.instantiateViewController(withIdentifier: "SignInPage")as? SignInPageViewController else {return}
+            
+            signInPageViewController.modalPresentationStyle = .fullScreen
+            self.show(signInPageViewController, sender: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "이미 가입된 계정이 있습니다.", message: nil , preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "돌아가기", style: UIAlertAction.Style.default, handler: nil)
+            alert.addAction(onAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
 
     func configureUI() {
