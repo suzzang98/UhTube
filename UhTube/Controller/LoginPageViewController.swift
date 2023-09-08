@@ -60,6 +60,15 @@ class LoginPageViewController: UIViewController {
         
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        if UserManager.shared.getUser()?.email != nil {
+            idTextField.text = UserManager.shared.getUser()?.email
+        }
+        if UserManager.shared.getUser()?.password != nil {
+            pwTextField.text = UserManager.shared.getUser()?.password
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
