@@ -93,9 +93,6 @@ extension MyPageViewController {
         let loginPage = UIStoryboard.init(name: "LoginPage", bundle: nil)
         guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginNavigation") as? UINavigationController else { return }
 
-//        let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
-//        guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
-
         loginPageController.modalPresentationStyle = .fullScreen
         present(loginPageController, animated: true, completion: nil)
     }
@@ -106,8 +103,6 @@ extension MyPageViewController {
             
             let loginPage = UIStoryboard.init(name: "LoginPage", bundle: nil)
             guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginNavigation") as? UINavigationController else { return }
-//            let loginPage = UIStoryboard(name: "LoginPage", bundle: nil)
-//            guard let loginPageController = loginPage.instantiateViewController(withIdentifier: "LoginPage") as? LoginPageViewController else { return }
             
             loginPageController.modalPresentationStyle = .fullScreen
             self.present(loginPageController, animated: true, completion: nil)
